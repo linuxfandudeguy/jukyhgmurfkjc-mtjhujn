@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Extremely Old Website</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 36px;
+            text-shadow: 2px 2px #ff00ff;
+        }
+        
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .button {
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .button:hover {
+            background-color: #ff6666;
+        }
+        
+        .flash-message {
+            font-size: 24px;
+            color: #ff0000;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body bgcolor="#000000" text="#ffffff">
+    <h1>Welcome to the Extremely Old Website!</h1>
+    <p>This website is a blast from the past, like visiting the dinosaurs in your web browser!</p>
+    <font size="5" face="Arial, Helvetica, sans-serif">Text in a font tag!</font>
+    <br>
+    <center>
+        <table border="1" cellpadding="10">
+            <tr>
+                <td>This is a table!</td>
+                <td>With cells!</td>
+            </tr>
+            <tr>
+                <td>Old school!</td>
+                <td>Just like the 90s!</td>
+            </tr>
+        </table>
+    </center>
+    <br>
+    <img src="https://via.placeholder.com/150" alt="Old school image!">
+    <br>
+    <form action="submit.php" method="get">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="email">Enter your email:</label>
+        <input type="email" id="email" name="email">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <button class="button">Click Me for a Surprise!</button>
+    <div class="flash-message" id="flashContent"></div>
+
+    <script>
+        var hasFlash = false;
+        try {
+            var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+            if (fo) {
+                hasFlash = true;
+            }
+        } catch (e) {
+            if (navigator.mimeTypes &&
+                navigator.mimeTypes['application/x-shockwave-flash'] !== undefined &&
+                navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin) {
+                hasFlash = true;
+            }
+        }
+
+        if (hasFlash) {
+            document.getElementById('flashContent').innerHTML = '<embed src="/test.swf" width="300" height="200" />';
+        } else {
+            document.getElementById('flashContent').innerHTML = 'Sorry, but you don\'t have an extension for Adobe Flash in your browser. No surprises for you!';
+        }
+    </script>
+</body>
+</html>
